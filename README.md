@@ -297,4 +297,4 @@ This project was developed as a Design and Analysis of Algorithms (DAA) project 
 
 **Muhammad Ashir Iqbal**
 
-FitPlanner AI — AI-Powered Workout Optimization System
+FitPlanner — AI-Powered Workout Optimization System
