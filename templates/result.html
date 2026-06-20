@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Plan Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="dashboard-container">
+    <div class="dashboard-title">
+        <h1>🏋️ Your Optimized Workout Plan</h1>
+        <p>Generated using Branch & Bound Optimization</p>
+    </div>
+
+    {% if status_message %}
+        <div class="notice">{{ status_message }}</div>
+    {% endif %}
+
+    <div class="summary-grid">
+        <div class="summary-card"><h2>{{ goal }}</h2><p>Fitness Goal</p></div>
+        <div class="summary-card"><h2>{{ level }}</h2><p>Fitness Level</p></div>
+        <div class="summary-card"><h2>{{ equipment }}</h2><p>Equipment</p></div>
+        <div class="summary-card"><h2>{{ days }}</h2><p>Workout Days</p></div>
+        <div class="summary-card"><h2>{{ calories }}</h2><p>Total Calories</p></div>
+        <div class="summary-card"><h2>{{ daily_time }} min</h2><p>Daily Limit</p></div>
+        <div class="summary-card"><h2>{{ planned_time }} min</h2><p>Planned Time</p></div>
+        <div class="summary-card"><h2>{{ total_exercises }}</h2><p>Exercises</p></div>
+    </div>
+
+    <h2 class="section-heading">📅 Weekly Workout Schedule</h2>
+
+    {% for day, exercises in daily_plan.items() %}
+    <div class="day-card">
+        <h3 class="day-title">{{ day }}</h3>
+        {% if exercises %}
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets / Reps</th>
+                        <th>Muscle</th>
+                        <th>Time</th>
+                        <th>Calories</th>
+                        <th>Intensity</th>
+                        <th>Equipment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ex in exercises %}
+                    <tr>
+                        <td><strong>{{ ex.name }}</strong><br><small>{{ ex.description }}</small></td>
+                        <td>{{ ex.variation }}</td>
+                        <td>{{ ex.muscle_group }}</td>
+                        <td>{{ ex.time }} min</td>
+                        <td>{{ ex.calories }}</td>
+                        <td>{{ ex.intensity }}</td>
+                        <td><span class="badge">{{ ex.equipment }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <p class="muted">Rest Day / No matching exercises for this day.</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="action-buttons">
+        <a href="/form" class="btn">Generate Another Plan</a>
+        <a href="/" class="btn btn-secondary">Back To Home</a>
+    </div>
+</div>
+</body>
+</html>

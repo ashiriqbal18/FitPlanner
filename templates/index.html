@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitPlanner AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="/">🧠 FitPlanner AI</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#steps">How It Works</a></li>
+            <li><a href="#algorithms">Algorithms</a></li>
+        </ul>
+        <a class="nav-btn" href="/form">Get Started</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Personalized Workout Planning</h1>
+            <p>Generate optimized workout schedules based on your goal, fitness level, available equipment, and daily time limit.</p>
+            <div class="hero-buttons">
+                <a href="/form" class="primary-btn">Generate Plan</a>
+                <a href="#features" class="secondary-btn">Learn More</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="dashboard-card">
+                <h3>Sample Workout</h3>
+                <div class="workout-item"><span>Push-ups</span><span>5 min</span></div>
+                <div class="workout-item"><span>Squats</span><span>5 min</span></div>
+                <div class="workout-item"><span>Plank</span><span>4 min</span></div>
+                <div class="score">Optimized for your constraints</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card"><h2>50+</h2><p>Exercises</p></div>
+        <div class="stat-card"><h2>3</h2><p>Fitness Goals</p></div>
+        <div class="stat-card"><h2>4</h2><p>Equipment Modes</p></div>
+        <div class="stat-card"><h2>7</h2><p>Plan Days</p></div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Why Choose FitPlanner AI?</h2>
+        <div class="feature-grid">
+            <div class="feature-card"><h3>🎯 Personalized Planning</h3><p>Plans are filtered by goal, level, equipment, and available workout time.</p></div>
+            <div class="feature-card"><h3>⚡ Smart Optimization</h3><p>Branch & Bound selects the highest-value exercise combination within your time limit.</p></div>
+            <div class="feature-card"><h3>🏋️ Equipment Matching</h3><p>Choose bodyweight, dumbbells, pull-up bar, or full gym access.</p></div>
+            <div class="feature-card"><h3>📅 Weekly Scheduling</h3><p>Exercises rotate across days to reduce repeated sessions.</p></div>
+        </div>
+    </section>
+
+    <section id="steps" class="steps">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+            <div class="step"><h3>1</h3><p>Enter Preferences</p></div>
+            <div class="step"><h3>2</h3><p>Run Optimization</p></div>
+            <div class="step"><h3>3</h3><p>Review Your Plan</p></div>
+        </div>
+    </section>
+
+    <section id="algorithms" class="algorithms">
+        <h2>Powered By Optimization Algorithms</h2>
+        <div class="algo-grid">
+            <div class="algo-card"><h3>Backtracking</h3><p>Explores valid exercise combinations recursively.</p></div>
+            <div class="algo-card"><h3>Pruning</h3><p>Stops searching branches that cannot beat the best solution.</p></div>
+            <div class="algo-card"><h3>Branch & Bound</h3><p>Finds a strong calorie/time plan without brute-forcing unnecessary paths.</p></div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready To Build Your Perfect Workout Plan?</h2>
+        <a href="/form" class="primary-btn">Start Planning</a>
+    </section>
+
+    <footer>
+        <h3>FitPlanner AI</h3>
+        <p>AI-Powered Workout Optimization System</p>
+        <p>© 2026 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

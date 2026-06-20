@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Workout Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <a class="back-link" href="/">← Back to Home</a>
+            <h2>Generate Your Workout Plan</h2>
+            <form action="/generate" method="POST">
+                <div class="form-group">
+                    <label for="goal">Fitness Goal</label>
+                    <select id="goal" name="goal" required>
+                        {% for value, label in goals.items() %}
+                            <option value="{{ value }}">{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="level">Fitness Level</label>
+                    <select id="level" name="level" required>
+                        {% for value, label in levels.items() %}
+                            <option value="{{ value }}">{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Workout Time Per Day (minutes)</label>
+                    <input id="time" type="number" name="time" min="5" max="180" value="30" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="equipment">Equipment Available</label>
+                    <select id="equipment" name="equipment" required>
+                        {% for value, label in equipment_options.items() %}
+                            <option value="{{ value }}">{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="days">Number of Days</label>
+                    <input id="days" type="number" name="days" min="1" max="7" value="3" required>
+                </div>
+
+                <button type="submit">Generate Plan</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
